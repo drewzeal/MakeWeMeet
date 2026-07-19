@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MakeWeMeet</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+line-height:1.6;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:#000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    border-bottom:2px solid #00ff66;
+    z-index:1000;
+}
+
+.logo{
+    color:#00ff66;
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.hamburger{
+    font-size:34px;
+    color:#00ff66;
+    cursor:pointer;
+    user-select:none;
+}
+
+    
+#navMenu{
+    position:fixed;
+    top:70px;
+    right:-100%;
+    width:280px;
+    height:calc(100vh - 70px);
+    background:#111;
+    display:flex;
+    flex-direction:column;
+    transition:.35s ease;
+    z-index:99999;
+}
+
+#navMenu.active{
+    right:0;
+}
+
+#navMenu a{
+    color:#fff;
+    text-decoration:none;
+    padding:18px 25px;
+    border-bottom:1px solid #222;
+}
+
+#navMenu a:hover{
+    background:#00ff66;
+    color:#000;
+}
+
+.logo{
+font-size:26px;
+font-weight:bold;
+color:#00ff66;
+}
+
+
+.hero{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400');
+background-size:cover;
+background-position:center;
+
+}
+
+.hero h1{
+font-size:58px;
+color:#00ff66;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin:auto;
+margin-bottom:35px;
+}
+
+
+.btn{
+    display:inline-block;
+    width:100%;
+    max-width:280px;
+    text-align:center;
+    padding:15px;
+    background:#00cc55;
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.btn:hover{
+
+background:#00ff66;
+color:black;
+
+}
+
+section{
+    width:100%;
+    max-width:100%;
+    padding:70px 20px;
+    overflow:hidden;
+}
+
+.title{
+
+text-align:center;
+font-size:40px;
+color:#00ff66;
+margin-bottom:40px;
+
+}
+
+    
+/*==========================
+CREATORS
+==========================*/
+
+#creators{
+
+padding:90px 20px;
+
+background:#070707;
+
+}
+
+.creator-subtitle{
+
+text-align:center;
+
+color:#bbb;
+
+margin-bottom:45px;
+
+font-size:17px;
+
+}
+
+.creators-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+max-width:1200px;
+
+margin:auto;
+
+}
+
+.creator-card{
+
+position:relative;
+
+background:#111;
+
+border-radius:20px;
+
+overflow:hidden;
+
+text-align:center;
+
+transition:.4s;
+
+border:1px solid rgba(0,255,102,.15);
+
+}
+
+.creator-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 35px rgba(0,255,102,.35);
+
+}
+
+.creator-card img{
+
+width:100%;
+
+height:400px;
+
+object-fit:cover;
+
+display:block;
+
+transition:.4s;
+
+}
+
+.creator-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+.creator-card h3{
+
+margin-top:20px;
+
+font-size:28px;
+
+color:#00ff66;
+
+}
+
+.creator-card p{
+
+color:#bbb;
+
+margin:10px 20px 25px;
+
+}
+
+.creator-btn{
+
+display:inline-block;
+
+margin-bottom:30px;
+
+padding:14px 35px;
+
+background:#00ff66;
+
+color:#000;
+
+font-weight:bold;
+
+text-decoration:none;
+
+border-radius:40px;
+
+transition:.3s;
+
+}
+
+.creator-btn:hover{
+
+background:#00cc55;
+
+transform:scale(1.05);
+
+}
+
+.featured{
+
+border:2px solid #00ff66;
+
+}
+
+.creator-badge{
+
+position:absolute;
+
+top:15px;
+
+right:15px;
+
+background:#00ff66;
+
+color:#000;
+
+font-size:13px;
+
+font-weight:bold;
+
+padding:8px 15px;
+
+border-radius:30px;
+
+z-index:2;
+
+}
+
+@media(max-width:768px){
+
+.creator-card img{
+
+height:330px;
+
+}
+
+.creator-card h3{
+
+font-size:24px;
+
+}
+
+}
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+height:300px;
+object-fit:cover;
+border-radius:10px;
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+.video-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
+    width:100%;
+}
+
+ .video-card{
+    width:100%;
+    max-width:100%;
+    padding:15px;
+    background:#111;
+    border:2px solid #00ff66;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.video-card video{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+.pricing{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+
+}
+
+.plan{
+
+background:#111;
+padding:35px;
+border-radius:15px;
+text-align:center;
+border:1px solid #00ff66;
+transition:.3s;
+
+}
+
+.plan:hover{
+
+transform:translateY(-8px);
+
+}
+
+.plan h2{
+
+color:#00ff66;
+
+}
+
+.price{
+
+font-size:45px;
+margin:20px 0;
+
+}
+
+.plan ul{
+
+list-style:none;
+margin-bottom:30px;
+
+}
+
+.plan li{
+
+margin:12px 0;
+
+}
+
+.payment{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    padding:25px;
+    border:2px solid #00ff66;
+    border-radius:15px;
+    background:#111;
+}
+
+.payment h3{
+
+color:#00ff66;
+margin-bottom:15px;
+
+}
+
+footer{
+
+background:black;
+padding:30px;
+text-align:center;
+margin-top:50px;
+
+}
+
+.whatsapp{
+
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+font-size:28px;
+color:white;
+
+}
+
+.telegram{
+
+position:fixed;
+bottom:95px;
+right:20px;
+background:#229ED9;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+font-size:28px;
+color:white;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">MakeWeMeet</div>
+
+<div class="hamburger" id="menuBtn">
+    ☰
+</div>
+
+
+<nav id="navMenu">
+<div id="overlay"></div>
+
+<a href="#creators">Creators</a>
+<a href="#gallery">Gallery</a>
+<a href="#videos">Videos</a>
+<a href="#plans">Membership</a>
+<a href="#payment">Payment</a>
+<a href="#faq">Frequently Asked Questions</a>
+<a href="#privacy">Privacy Policy</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div>
+
+<h1> About</h1>
+
+<h1>Make We Meet</h1>
+
+<p100>
+MakeWeMeet is an exclusive content subscription platform that 
+empowers creators to create content annonymously.
+It empowers creators to monetize their content by offering
+premium photos, videos, and exclusive updates annonymously through flexible membership plans.
+</p>
+
+<a href="#plans" class="btn">
+Become a Member
+</a>
+
+</div>
+
+</section>
+    
+<section id="creators">
+
+<h2 class="title">Featured Creators</h2>
+
+<p class="creator-subtitle">
+Choose your favorite creator and subscribe for exclusive content.
+</p>
+
+<div class="creators-grid">
+
+<div class="creator-card">
+
+<img src="https://picsum.photos/500/650?random=11" alt="Dinky">
+
+<h3>Dinky</h3>
+
+<p>Premium Creator</p>
+
+<a href="#plans" class="creator-btn">
+Subscribe
+</a>
+
+</div>
+
+<div class="creator-card featured">
+
+<div class="creator-badge">Trending</div>
+
+<img src="https://picsum.photos/500/650?random=12" alt="XBaddie">
+
+<h3>XBaddie</h3>
+
+<p>Premium Creator</p>
+
+<a href="#plans" class="creator-btn">
+Subscribe
+</a>
+
+</div>
+
+<div class="creator-card">
+
+<img src="https://picsum.photos/500/650?random=13" alt="Janet">
+
+<h3>Janet</h3>
+
+<p>Premium Creator</p>
+
+<a href="#plans" class="creator-btn">
+Subscribe
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="title">
+Photo Gallery
+</h2>
+
+<div class="gallery">
+
+<img src="https://picsum.photos/600/700?1">
+
+<img src="https://picsum.photos/600/700?2">
+
+<img src="https://picsum.photos/600/700?3">
+
+<img src="https://picsum.photos/600/700?4">
+
+<img src="https://picsum.photos/600/700?5">
+
+<img src="https://picsum.photos/600/700?6">
+
+</div>
+
+</section>
+
+<section id="videos">
+
+<h2 class="title">
+Video Preview
+</h2>
+
+<div class="video-grid">
+
+<div class="video-card">
+
+<video controls>
+
+<source src="sample.mp4">
+
+</video>
+
+</div>
+
+<div class="video-card">
+
+<video controls>
+
+<source src="sample2.mp4">
+
+</video>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="plans">
+
+<h2 class="title">
+
+Membership Plans
+
+</h2>
+
+<div class="pricing">
+
+<div class="plan">
+
+<h2>Basic</h2>
+
+<div class="price">₦10,000</div>
+
+<ul>
+
+<li>One time access to daily content</li>
+<li>Photos and video</li>
+<li>Telegram channel 24 hours access</li>
+
+</ul>
+
+<a href="#payment" class="btn">
+
+Subscribe
+
+</a>
+
+</div>
+
+<div class="plan">
+
+<h2>Premium</h2>
+
+<div class="price">₦25,000</div>
+
+<ul>
+
+<li>Full content access</li>
+<li>Daily content 15 days</li>
+<li>Private Telegram Channel Access</li>
+
+</ul>
+
+<a href="#payment" class="btn">
+
+Subscribe
+
+</a>
+
+</div>
+
+<div class="plan">
+
+<h2>VIP</h2>
+
+<div class="price">₦50,000</div>
+
+<ul>
+
+<li> 30 Days Unlimited content</li>
+<li>Custom request</li>
+<li>VIP Community</li>
+
+</ul>
+
+<a href="#payment" class="btn">
+
+Subscribe
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="payment">
+
+<h2 class="title">
+
+Subscribe via Telegram
+
+</h2>
+
+<div class="payment">
+
+<h3>Join Telegram</h3>
+
+
+<br>
+
+<p>
+Click the button below to Chat with us on Telegram with Creator Name,Membership Plan and upload your payment receipt for confirmation. Access will be granted via private invite link on confirmation.
+</p>
+
+<br>
+
+<a class="btn"
+href="https://t.me/mwmdotcom">
+
+Subscribe via Telegram
+
+</a>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- MILESTONE COUNTER -->
+<!-- ========================= -->
+<section id="milestones" class="section">
+    <h2 class="section-title">Our Community</h2>
+
+    <div class="counter-grid">
+
+        <div class="counter-card">
+            <h3 class="counter" data-target="10">0</h3>
+            <p>Creators</p>
+        </div>
+
+        <div class="counter-card">
+            <h3 class="counter" data-target="100">0</h3>
+            <p>Subscribers</p>
+        </div>
+
+        <div class="counter-card">
+            <h3 class="counter" data-target="2500">0</h3>
+            <p>Premium Content</p>
+        </div>
+
+        <div class="counter-card">
+            <h3 class="counter" data-target="12000000">0</h3>
+            <p>Payouts</p>
+        </div>
+
+    </div>
+</section>
+<!-- ========================= -->
+<!-- FAQ -->
+<!-- ========================= -->
+
+<section id="faq" class="section">
+
+<h2 class="section-title">Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<div class="faq-question">
+How do I become a member?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Choose your preferred creator, make payment, send your payment receipt via WhatsApp or Telegram and your access will be activated after confirmation.
+</div>
+</div>
+
+
+<div class="faq-item">
+<div class="faq-question">
+How long does activation take?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Most memberships are activated within a few minutes after payment confirmation, although it may occasionally take longer during busy periods.
+</div>
+</div>
+
+
+<div class="faq-item">
+<div class="faq-question">
+Can I cancel anytime?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Yes. Membership is flexible. You can choose not to renew your subscription at any time.
+</div>
+</div>
+
+
+<div class="faq-item">
+<div class="faq-question">
+Can I become a creator?
+<span>+</span>
+</div>
+
+<div class="faq-answer">
+Absolutely. Click "Join as a Creator" and contact our team through WhatsApp or Telegram for onboarding.
+</div>
+</div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- PRIVACY -->
+<!-- ========================= -->
+
+<section id="privacy" class="section">
+
+<h2 class="section-title">Privacy Policy</h2>
+
+<div class="privacy-card">
+
+<p>
+
+Your privacy is important to us. MakeWeMeet protects your personal information and payment details.
+
+</p>
+
+<p>
+
+We do not sell or share your personal information with third parties except where required to process payments or comply with applicable laws.
+
+</p>
+
+<p>
+
+Creators retain ownership of their uploaded content and can request deletion at their discretion. Unauthorized copying, third party or underaged materials are strictly prohibited, redistribution or recording of premium content is prohibited.
+
+</p>
+
+<p>
+
+By using MakeWeMeet, you agree to our Terms of Service and Privacy Policy.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<style>
+
+.section{
+
+padding:70px 20px;
+
+background:#000;
+
+}
+
+.section-title{
+
+color:#00ff66;
+
+text-align:center;
+
+font-size:36px;
+
+margin-bottom:40px;
+
+}
+
+
+
+.counter-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+gap:20px;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+
+
+.counter-card{
+
+background:#111;
+
+border:2px solid #00ff66;
+
+border-radius:18px;
+
+padding:30px;
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+
+
+.counter-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 20px #00ff66;
+
+}
+
+
+
+.counter{
+
+font-size:46px;
+
+color:#00ff66;
+
+margin-bottom:10px;
+
+}
+
+
+
+.counter-card p{
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+.faq-item{
+
+max-width:900px;
+
+margin:18px auto;
+
+background:#111;
+
+border:1px solid #00ff66;
+
+border-radius:12px;
+
+overflow:hidden;
+
+}
+
+
+
+.faq-question{
+
+padding:22px;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:white;
+
+display:flex;
+
+justify-content:space-between;
+
+cursor:pointer;
+
+}
+
+
+
+.faq-answer{
+
+display:none;
+
+padding:20px;
+
+background:#181818;
+
+color:#ddd;
+
+line-height:1.7;
+
+}
+
+
+
+.privacy-card{
+
+max-width:900px;
+
+margin:auto;
+
+background:#111;
+
+border:2px solid #00ff66;
+
+border-radius:18px;
+
+padding:35px;
+
+color:#ddd;
+
+line-height:1.8;
+
+font-size:17px;
+
+}
+
+
+
+@media(max-width:768px){
+
+.section-title{
+
+font-size:30px;
+
+}
+
+.counter{
+
+font-size:38px;
+
+}
+
+.faq-question{
+
+font-size:18px;
+
+}
+
+}
+
+</style>
+
+
+
+<script>
+
+/* Counter */
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+
+const update=()=>{
+
+const target=+counter.getAttribute('data-target');
+
+const count=+counter.innerText;
+
+const increment=target/100;
+
+if(count<target){
+
+counter.innerText=Math.ceil(count+increment);
+
+setTimeout(update,20);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+};
+
+update();
+
+});
+
+
+
+/* FAQ */
+
+document.querySelectorAll(".faq-question").forEach(item=>{
+
+item.addEventListener("click",()=>{
+
+const answer=item.nextElementSibling;
+
+const icon=item.querySelector("span");
+
+
+
+if(answer.style.display==="block"){
+
+answer.style.display="none";
+
+icon.innerHTML="+";
+
+}else{
+
+document.querySelectorAll(".faq-answer").forEach(a=>a.style.display="none");
+
+document.querySelectorAll(".faq-question span").forEach(i=>i.innerHTML="+");
+
+answer.style.display="block";
+
+icon.innerHTML="−";
+
+}
+
+});
+
+});
+
+</script>
+
+<footer>
+
+© 2026 MakeWeMeet
+
+</footer>
+
+
+<script>
+
+const sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(sec=>{
+
+const top=window.scrollY;
+
+const offset=sec.offsetTop-300;
+
+if(top>offset){
+
+sec.style.opacity="1";
+sec.style.transform="translateY(0px)";
+
+}
+
+});
+
+});
+
+sections.forEach(sec=>{
+
+sec.style.opacity="0";
+sec.style.transition=".8s";
+sec.style.transform="translateY(40px)";
+
+});
+    
+ const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.addEventListener("click", function () {
+
+    navMenu.classList.toggle("active");
+
+    if(navMenu.classList.contains("active")){
+        menuBtn.innerHTML="&#10005;";
+    }else{
+        menuBtn.innerHTML="&#9776;";
+    }
+// Automatically close the menu when a link is clicked
+
+document.querySelectorAll("#navMenu a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        navMenu.classList.remove("active");
+
+        overlay.classList.remove("show");
+
+        menuBtn.innerHTML = "&#9776;";
+
+    });
+
+});
+});
+
+</script>
+
+</body>
+
+</html>
