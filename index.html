@@ -43,11 +43,6 @@ header{
     z-index:1000;
 }
 
-.logo{
-    color:#00ff66;
-    font-size:2rem;
-    font-weight:bold;
-}
 
 .hamburger{
     font-size:34px;
@@ -91,7 +86,11 @@ font-size:26px;
 font-weight:bold;
 color:#00ff66;
 }
-
+.logo img{
+    height:50px;
+    width:auto;
+    display:block;
+}
 
 .hero{
     
@@ -345,6 +344,72 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 
 }
+.creator-section{
+    background:#000;
+    color:#fff;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.creator-section h2{
+    color:#00ff66;
+    font-size:2.5rem;
+    margin-bottom:20px;
+}
+
+.creator-text{
+    max-width:700px;
+    margin:0 auto 50px;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.creator-features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-bottom:50px;
+}
+
+.feature{
+    background:#111;
+    border:1px solid #00ff66;
+    border-radius:15px;
+    padding:30px 20px;
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-8px);
+}
+
+.feature i{
+    font-size:40px;
+    color:#00ff66;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    color:#00ff66;
+    margin-bottom:10px;
+}
+
+.creator-btn{
+    display:inline-block;
+    background:#00cc55;
+    color:#fff;
+    padding:16px 40px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+    transition:.3s;
+}
+
+.creator-btn:hover{
+    background:#00ff66;
+    color:#000;
+}
 
 .gallery img{
 
@@ -526,7 +591,9 @@ display:none;
 
 <header>
 
-<div class="logo">MakeWeMeet</div>
+<a href="index.html" class="logo">
+    <img src="logo.png_20260721221441_0000.png">
+</a>
 
 <div class="hamburger" id="menuBtn">
     ☰
@@ -539,8 +606,9 @@ display:none;
 <a href="#creators">Creators</a>
 <a href="#gallery">Gallery</a>
 <a href="#videos">Videos</a>
-<a href="#plans">Membership</a>
+<a href="#plans">Subscribe</a>
 <a href="#payment">Payment</a>
+<a href="#creator">Join As Creator</a>
 <a href="#faq">Frequently Asked Questions</a>
 <a href="#privacy">Privacy Policy</a>
 
@@ -795,6 +863,46 @@ Subscribe via Telegram
 
 </div>
 
+<!-- Join As Creator Section -->
+<section id="creator" class="creator-section">
+    <div class="container">
+
+        <h2>Join As Creator</h2>
+
+        <p class="creator-text">
+            Ready to monetize your content while protecting your identity?
+            MakeWeMeet empowers creators to earn from premium photos, videos,
+            and exclusive updates anonymously.
+        </p>
+
+        <div class="creator-features">
+
+            <div class="feature">
+                <i class="fas fa-user-secret"></i>
+                <h3>Stay Anonymous</h3>
+                <p>Create and earn without revealing your identity.</p>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-wallet"></i>
+                <h3>Earn 70%</h3>
+                <p>Receive 70% of every successful subscription.</p>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Platform</h3>
+                <p>Your content and subscribers are managed securely.</p>
+            </div>
+
+        </div>
+
+        <a href="https://t.me/+aq2_3MeYQf5mM2I8" class="creator-btn">
+            Join Creator Community
+        </a>
+
+    </div>
+</section>
 </section>
 <!-- ========================= -->
 <!-- MILESTONE COUNTER -->
