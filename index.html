@@ -57,6 +57,194 @@
     
 <style>
 
+.section{
+
+padding:70px 20px;
+
+background:#000;
+
+}
+
+.section-title{
+
+color:#00ff66;
+
+text-align:center;
+
+font-size:36px;
+
+margin-bottom:40px;
+
+}
+
+
+
+.counter-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+gap:20px;
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+
+
+.counter-card{
+
+background:#111;
+
+border:2px solid #00ff66;
+
+border-radius:18px;
+
+padding:30px;
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+
+
+.counter-card:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 20px #00ff66;
+
+}
+
+
+
+.counter{
+
+font-size:46px;
+
+color:#00ff66;
+
+margin-bottom:10px;
+
+}
+
+
+
+.counter-card p{
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+.faq-item{
+
+max-width:900px;
+
+margin:18px auto;
+
+background:#111;
+
+border:1px solid #00ff66;
+
+border-radius:12px;
+
+overflow:hidden;
+
+}
+
+
+
+.faq-question{
+
+padding:22px;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:white;
+
+display:flex;
+
+justify-content:space-between;
+
+cursor:pointer;
+
+}
+
+
+
+.faq-answer{
+
+display:none;
+
+padding:20px;
+
+background:#181818;
+
+color:#ddd;
+
+line-height:1.7;
+
+}
+
+
+
+.privacy-card{
+
+max-width:900px;
+
+margin:auto;
+
+background:#111;
+
+border:2px solid #00ff66;
+
+border-radius:18px;
+
+padding:35px;
+
+color:#ddd;
+
+line-height:1.8;
+
+font-size:17px;
+
+}
+
+
+
+@media(max-width:768px){
+
+.section-title{
+
+font-size:30px;
+
+}
+
+.counter{
+
+font-size:38px;
+
+}
+
+.faq-question{
+
+font-size:18px;
+
+}
+
+}
+
 *{
 margin:0;
 padding:0;
@@ -79,7 +267,7 @@ header{
     top:0;
     left:0;
     width:100%;
-    height:70px;
+    height:50px;
     background:#000;
     display:flex;
     justify-content:space-between;
@@ -664,22 +852,19 @@ display:none;
 
 <section class="hero">
 
-<div>
+<div> 
+  
+<h1>Create Content.</h1>
 
-<h1> About</h1>
+<h2>Stay Anonymous.</h2>
 
-<h1>Make We Meet</h1>
+<h3>Get Paid.</h3>
 
-<p100>
-MakeWeMeet is an annonymous content subscription platform.
-It empowers creators to monetize their content by offering
-premium photos, videos, and exclusive updates annonymously while
-the platform handles monetization through flexible membership plans.
+<p>
+Welcome to Nigeria's anonymous creator subscription platform.
+Subscribe to exclusive content or become a verified 
+creator and earn while protecting your identity.
 </p>
-
-<a href="#plans" class="btn">
-Subscribe
-</a>
 
 </div>
 
@@ -1037,7 +1222,171 @@ Absolutely. Click "Join as a Creator" and contact our team through WhatsApp or T
 
 </section>
 
+<section id="about" class="section">
 
+<h2 class="section-title">About MakeWeMeet</h2>
+
+<div class="privacy-card">
+
+<p>
+
+<strong>MakeWeMeet</strong> is a next-generation anonymous content subscription platform built to empower creators who want to monetize their talents while protecting their privacy. We believe that creativity should never be limited by fear of public judgment, social stigma, unwanted attention, or personal security concerns. MakeWeMeet provides a secure environment where verified creators can build premium subscription communities and earn sustainable income while remaining anonymous to the public.
+
+</p>
+
+<br>
+
+<p>
+
+The digital creator economy has transformed the way people earn money online. Millions of creators around the world now generate income by sharing exclusive photos, videos, tutorials, behind-the-scenes content, lifestyle updates, entertainment, educational materials, artistic creations, and other premium digital experiences with paying subscribers. However, many talented creators choose not to participate because revealing their identities could affect their personal lives, careers, education, families, businesses, religious beliefs, or future opportunities.
+
+</p>
+
+<br>
+
+<p>
+
+MakeWeMeet was created to solve this problem. Our platform allows creators to establish premium subscription communities without exposing their personal identities to subscribers. Every approved creator operates under a unique creator profile while maintaining strict anonymity. This allows creativity to flourish while protecting personal privacy.
+
+</p>
+
+<br>
+
+<p>
+
+Unlike traditional social media platforms that encourage creators to become public personalities, MakeWeMeet focuses on the content itself. Subscribers join because they value the creator's work, consistency, creativity, personality, and exclusive experiences—not because they know the creator's real identity.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Our Mission</h3>
+
+<p>
+
+Our mission is to create Africa's leading privacy-first creator economy platform where creators can confidently earn income while maintaining complete control over their public identities. We aim to remove barriers preventing talented individuals from participating in the growing digital economy by providing a platform built around anonymity, trust, fairness, and security.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">How MakeWeMeet Works</h3>
+
+<p>
+
+Using MakeWeMeet is designed to be simple and secure.
+
+Subscribers browse featured creators on our website and choose the creator they wish to support. They then select a subscription plan that matches their preferred level of access. After payment, subscribers contact our official Telegram support channel with their payment confirmation and the name of their preferred creator. Once payment is verified, subscribers receive access to the creator's private Telegram channel where premium content is delivered.
+
+</p>
+
+<br>
+
+<p>
+
+Each creator manages their own private channel by publishing exclusive content directly as the channel itself rather than from a personal account. This ensures subscribers interact with the creator's content while the creator's personal identity remains protected.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Creator Verification</h3>
+
+<p>
+
+Privacy should never come at the expense of accountability. Every creator joining MakeWeMeet undergoes a comprehensive verification process before approval.
+
+Our verification process includes government-issued identification, phone verification, residential address verification, banking information for payouts, identity confirmation photographs, and live video verification. This ensures that every creator is genuine while allowing them to remain anonymous to subscribers after approval.
+
+</p>
+
+<br>
+
+<p>
+
+This dual-layer model creates a trusted ecosystem where MakeWeMeet knows who every creator is, while subscribers only interact with the creator's anonymous profile. It protects creators from unnecessary exposure while helping prevent fraud, impersonation, identity theft, copyright abuse, and malicious activity.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Anonymous by Design</h3>
+
+<p>
+
+Privacy is one of the core foundations of MakeWeMeet.
+
+Creators are not required to reveal their names, social media accounts, addresses, workplaces, educational institutions, or other personal information to subscribers. Communication outside the platform is discouraged, and all subscriptions are managed through MakeWeMeet to maintain trust and protect both creators and subscribers.
+
+Our distinctive masked creator branding symbolizes freedom, confidence, creativity, and privacy. It reminds creators that their talent—not their identity—is the center of attention.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Fair Revenue Sharing</h3>
+
+<p>
+
+We believe creators deserve the majority of the value they create.
+
+For every successful subscription processed through MakeWeMeet, creators receive 70% of the revenue while MakeWeMeet retains 30% to support platform operations, infrastructure, payment processing, moderation, marketing, customer support, technology development, creator verification, and future platform improvements.
+
+This transparent revenue-sharing model aligns our success with the success of our creators.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Safety & Trust</h3>
+
+<p>
+
+Maintaining a safe community is essential.
+
+All creators agree to our Creator Agreement before joining the platform. Every creator confirms ownership of the content they upload and agrees to comply with applicable laws, copyright regulations, and community standards. Unauthorized content, copyright infringement, impersonation, fraudulent activity, or prohibited material may result in suspension or permanent removal from the platform.
+
+Subscribers also benefit from a secure payment process, verified creators, responsive customer support, and a carefully managed platform designed to foster trust.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Built for Africa, Ready for the World</h3>
+
+<p>
+
+MakeWeMeet is proudly designed with African creators and subscribers in mind while remaining accessible to a global audience. We understand the unique cultural, financial, and technological challenges faced by creators across Africa and are committed to providing practical solutions that make digital monetization accessible and sustainable.
+
+Our long-term vision is to become the preferred anonymous creator platform across Africa and beyond by continually improving our technology, expanding payment options, strengthening security, and creating more opportunities for creators to earn online.
+
+</p>
+
+<br>
+
+<h3 style="color:#00ff66;">Our Vision</h3>
+
+<p>
+
+We envision a future where talented individuals no longer have to choose between protecting their privacy and pursuing financial opportunities online. We believe every creator deserves a platform where creativity is rewarded, identities are respected, and trust forms the foundation of every interaction.
+
+MakeWeMeet exists to empower creators, build thriving subscriber communities, and redefine what it means to create, connect, and earn in the digital age.
+
+</p>
+
+<br>
+
+<p style="text-align:center;font-size:22px;color:#00ff66;font-weight:bold;">
+
+Create Content.<br>
+Stay Anonymous.<br>
+Get Paid.
+
+</p>
+
+</div>
+
+</section>
 
 <!-- ========================= -->
 <!-- PRIVACY -->
