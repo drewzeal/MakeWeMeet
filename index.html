@@ -53,8 +53,8 @@
 }
 </script>
 
-</head>
 
+    
 <style>
 
 *{
@@ -672,7 +672,7 @@ display:none;
 
 <p100>
 MakeWeMeet is an annonymous content subscription platform.
-We empower creators to monetize their content by offering
+It empowers creators to monetize their content by offering
 premium photos, videos, and exclusive updates annonymously while
 the platform handles monetization through flexible membership plans.
 </p>
@@ -901,7 +901,7 @@ Click the button below to Chat with us on Telegram with Creator Name,Membership 
 <br>
 
 <a class="btn"
-href="https://t.me/makewemeetdotcom">
+href="https://t.me/mwmdotcom">
 
 Subscribe via Telegram
 
@@ -1354,62 +1354,81 @@ icon.innerHTML="−";
 
 <script>
 
-const sections=document.querySelectorAll("section");
+// ===============================
+// MAKEWEMEET JAVASCRIPT
+// ===============================
 
-window.addEventListener("scroll",()=>{
+document.addEventListener("DOMContentLoaded", function () {
 
-sections.forEach(sec=>{
+    // ----------------------------
+    // Mobile Menu
+    // ----------------------------
 
-const top=window.scrollY;
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
 
-const offset=sec.offsetTop-300;
+    menuBtn.addEventListener("click", function () {
 
-if(top>offset){
+        navMenu.classList.toggle("active");
 
-sec.style.opacity="1";
-sec.style.transform="translateY(0px)";
-
-}
-
-});
-
-});
-
-sections.forEach(sec=>{
-
-sec.style.opacity="0";
-sec.style.transition=".8s";
-sec.style.transform="translateY(40px)";
-
-});
-    
- const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
-
-menuBtn.addEventListener("click", function () {
-
-    navMenu.classList.toggle("active");
-
-    if(navMenu.classList.contains("active")){
-        menuBtn.innerHTML="&#10005;";
-    }else{
-        menuBtn.innerHTML="&#9776;";
-    }
-// Automatically close the menu when a link is clicked
-
-document.querySelectorAll("#navMenu a").forEach(function(link){
-
-    link.addEventListener("click", function(){
-
-        navMenu.classList.remove("active");
-
-        overlay.classList.remove("show");
-
-        menuBtn.innerHTML = "&#9776;";
+        if (navMenu.classList.contains("active")) {
+            menuBtn.innerHTML = "✕";
+        } else {
+            menuBtn.innerHTML = "☰";
+        }
 
     });
 
-});
+    // ----------------------------
+    // Close menu when link clicked
+    // ----------------------------
+
+    document.querySelectorAll("#navMenu a").forEach(link => {
+
+        link.addEventListener("click", function () {
+
+            navMenu.classList.remove("active");
+            menuBtn.innerHTML = "☰";
+
+        });
+
+    });
+
+
+    // ----------------------------
+    // Smooth Fade-In Animation
+    // ----------------------------
+
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    sections.forEach(section => {
+
+        section.style.opacity = "1";
+        section.style.transform = "translateY(0)";
+        section.style.transition = "opacity .6s ease, transform .6s ease";
+
+        observer.observe(section);
+
+    });
+
 });
 
 </script>
