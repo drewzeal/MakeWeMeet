@@ -894,6 +894,71 @@ transform:translateY(-5px) scale(1.08);
 box-shadow:0 0 20px rgba(0,194,110,.6);
 
 }
+.creator-banner{
+
+width:100%;
+overflow:hidden;
+padding:20px 0;
+background:#000;
+
+}
+
+.marquee{
+
+overflow:hidden;
+white-space:nowrap;
+
+}
+
+.marquee-content{
+
+display:flex;
+width:max-content;
+
+animation:scrollLeft 25s linear infinite;
+
+}
+
+.marquee-content img{
+
+width:220px;
+height:300px;
+
+object-fit:cover;
+
+margin-right:20px;
+
+border-radius:18px;
+
+border:3px solid #00C26E;
+
+flex-shrink:0;
+
+transition:.3s;
+
+}
+
+.marquee-content img:hover{
+
+transform:scale(1.05);
+
+}
+
+@keyframes scrollLeft{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-50%);
+
+}
+
+}
 
 </style>
 
@@ -943,6 +1008,34 @@ Welcome to Nigeria's anonymous creator subscription platform.
 Subscribe to exclusive content or become a verified 
 creator and earn while protecting your identity.
 </p>
+
+</div>
+
+</section>
+
+<section class="creator-banner">
+
+<div class="marquee">
+
+<div class="marquee-content">
+
+<img src="https://i.pravatar.cc/400?img=5" alt="">
+<img src="https://i.pravatar.cc/400?img=12" alt="">
+<img src="https://i.pravatar.cc/400?img=21" alt="">
+<img src="https://i.pravatar.cc/400?img=32" alt="">
+<img src="https://i.pravatar.cc/400?img=47" alt="">
+<img src="https://i.pravatar.cc/400?img=56" alt="">
+
+<!-- Duplicate for seamless loop -->
+
+<img src="https://i.pravatar.cc/400?img=5" alt="">
+<img src="https://i.pravatar.cc/400?img=12" alt="">
+<img src="https://i.pravatar.cc/400?img=21" alt="">
+<img src="https://i.pravatar.cc/400?img=32" alt="">
+<img src="https://i.pravatar.cc/400?img=47" alt="">
+<img src="https://i.pravatar.cc/400?img=56" alt="">
+
+</div>
 
 </div>
 
@@ -1017,7 +1110,7 @@ Subscribe
 <section id="gallery">
 
 <h2 class="title">
-Photo Gallery
+Creator Gallery
 </h2>
 
 <div class="gallery">
