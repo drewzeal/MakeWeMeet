@@ -850,6 +850,38 @@ transform:scale(1.12);
 box-shadow:0 12px 35px rgba(37,211,102,.65);
 
 }
+
+#paystack-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:15px 25px;
+    background:#00C26E;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 8px 20px rgba(0,194,110,.25);
+}
+
+#paystack-btn:hover{
+    background:#00b864;
+    transform:translateY(-2px);
+}
+
+#paystack-btn:active{
+    transform:translateY(0);
+}
+
+#paystack-btn svg{
+    width:20px;
+    height:20px;
+}
 .footer-social{
 
 display:flex;
@@ -1261,13 +1293,13 @@ Subscribe
 
 <h2 class="title">
 
-Subscribe via Telegram
+Subscribe via Telegram or PayStack
 
 </h2>
 
 <div class="payment">
 
-<h3>Join Telegram</h3>
+<h3>Subscribe via Telegram</h3>
 
 
 <br>
@@ -1284,6 +1316,15 @@ href="https://t.me/mwmdotcom">
 Subscribe via Telegram
 
 </a>
+
+<button id="paystack-btn" onclick="payWithPaystack()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+         fill="currentColor" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0V4zm0 3h16v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V7zm3 3a.75.75 0 0 0 0 1.5h2a.75.75 0 0 0 0-1.5H3z"/>
+    </svg>
+
+    <span>Pay with Paystack</span>
+</button>
 
 </div>
 
@@ -1777,6 +1818,58 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+const PAYSTACK_PUBLIC_KEY = "pk_live_YOUR_PUBLIC_KEY";
+
+function payWithPaystack() {
+
+    const email = prompt("Enter your email address:");
+    if (!email) return;
+
+    const amount = prompt("Enter amount (₦):");
+    if (!amount || isNaN(amount) || Number(amount) < 100) {
+        alert("Please enter a valid amount.");
+        return;
+    }
+
+    const handler = PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: email,
+        amount: Number(amount) * 100,
+        currency: "NGN",
+
+        metadata: {
+            custom_fields: [
+                {
+                    display_name: "Platform",
+                    variable_name: "platform",
+                    value: "MakeWeMeet"
+                }
+            ]
+        },
+
+        callback: function(response) {
+            alert(
+                "✅ Payment Successful!\n\nReference: " +
+                response.reference +
+                "\n\nPlease send this reference to us on Telegram to activate your subscription."
+            );
+
+            // Optional: Open Telegram automatically
+            window.open("https://t.me/mwmdotcom", "_blank");
+        },
+
+        onClose: function() {
+            console.log("Payment window closed.");
+        }
+    });
+
+    handler.openIframe();
+}
+</script>
 
 </script>
 <a href="https://wa.me/2348033260116"
